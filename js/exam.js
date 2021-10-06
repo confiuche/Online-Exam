@@ -17,7 +17,7 @@ load.addEventListener("click",function(){
 
 finish.addEventListener("click",function(){
     // alert("Bolan");
-    confirm("Do you want to submit?")
+    //confirm("Do you want to submit?")
     const qn1 = document.exam.q1.value;
     const qn2 = document.exam.q2.value;
     const qn3 = document.exam.q3.value;
@@ -115,23 +115,26 @@ finish.addEventListener("click",function(){
           result++;
       }
  
-      localStorage.setItem("score",result)
-      localStorage.setItem("ck", check)
-    //   window.location="result.html"
-    window.open("result.html","newWindow","location=true, resizable=false, width=450, height=350, top=250, left=250")
+      
 
      //check how many question users got correctlly
      //alert(result)
      let check;
-     if(result < 1){
+     if(result <= 7){
           check = 2;
      }
-     else if(result > 0 && result < 3){
+     else if(result > 7 && result < 15){
          check = 1;
      }
-     else if(result > 2){
+     else if(result => 15){
          check = 0;
      }
+
+
+     localStorage.setItem("score",result)
+      localStorage.setItem("ck", message[check])
+    //   window.location="result.html"
+    window.open("result.html","newWindow","location=true, resizable=false, width=450, height=350, top=250, left=250")
 
    info.innerHTML = message[check]; 
    document.getElementById("ans").innerHTML = `You scored ${result}`;
@@ -144,13 +147,34 @@ finish.addEventListener("click",function(){
         document.getElementById("ans").innerHTML="You Scored "+result;
     disp.classList.add("poor");
     }
+
+    
+
 })
 
+// let timeTime = setInterval(function(){
+//     let cout = 0;
+//     let tt = 40;
+//     //tt--;
+//     let quizTime = tt - cout
+//     quizTime--;
+//     console.log(quizTime)
+//     let tm = document.querySelector(".time").innerHTML = quizTime
+    
+
+// }, 1000);
 
 
 
 
-let countDown = new Date("October ,02 2021 02:40:25")
+
+let countDown = new Date()
+console.log(countDown)
+let x = countDown.getMinutes()
+let y = countDown.getSeconds()
+console.log(x)
+console.log(y)
+
 
 let count = setInterval(function() {
 
@@ -166,6 +190,6 @@ let count = setInterval(function() {
 
   if (timeDiff < 0) {
     clearInterval(count);
-    document.getElementById("buhari").innerHTML = "Pls Buhari your time in the has EXPIRED as President of. \n Republic of Nigeria Vacate the office as soon as possible";
+    //document.getElementById("buhari").innerHTML = "Pls Buhari your time in the has EXPIRED as President of. \n Republic of Nigeria Vacate the office as soon as possible";
   }
 }, 1000);

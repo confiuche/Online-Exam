@@ -7,14 +7,44 @@
     <title>Document</title>
 </head>
 <body>
-    <form id="login" name="login">
+    <form id="loginForm" name="loginF">
         <div>
             <p><input type="text" id="uname" value="admin" placeholder="Enter your user name"></p>
             <p><input type="password" id="pwd" value="admin" placeholder="Enter your password"></p>
         </div>
         <div>
-            <button id="login">Login</button>
+            <button id="login" onclick="log()">Login</button>
         </div>
     </form>
+    
+    <script>
+        let logIn = document.getElementById("login")
+
+        // logIn.addEventListener('click',function(){
+        //     //alert("Connected")
+        //     window.location = "exam.html";
+        // });
+
+        let user, pass;
+        function log(){
+            //let user, pass;
+            user = document.getElementById("uname").value;
+            pass = document.getElementById("pwd").value;
+            
+            if(user === "admin" && pass === "admin"){
+                // console.log(user)
+                // console.log(pass)
+            //alert("Connected")
+            window.location = "exam.html"
+            //window.location = "exam.html"
+            }else{
+                alert("Wrong password and user name")
+            }
+        }
+
+        //logIn.addEventListener('click',log)
+
+        
+    </script>
 </body>
 </html>
